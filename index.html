@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+ <link rel="stylesheet" href="styles.css">
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Главная - Название вашего сайта</title>
@@ -32,7 +33,46 @@
  </header>
  <!-- Уникальное основное содержимое страницы -->
  <main>
- <h1>Добро пожаловать на наш сайт!</h1>
+ <h1>Добро пожаловать!</h1>
+
+    <!-- Кнопка открытия формы -->
+    <button id="openDialog" type="button">Написать нам</button>
+
+    <!-- Модальное окно с формой -->
+    <dialog id="contactDialog">
+        <h2>Обратная связь</h2>
+
+        <form id="contactForm" method="dialog" novalidate>
+            <!-- Поля формы -->
+            <label for="name">Имя *</label>
+<input id="name" name="name" type="text" required minlength="2">
+
+<label for="email">Email *</label>
+<input id="email" name="email" type="email" required>
+
+<label for="phone">Телефон *</label>
+<input id="phone" name="phone" type="tel" required
+       pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+       placeholder="+7 (900) 123-45-67">
+
+<label for="topic">Тема *</label>
+<select id="topic" name="topic" required>
+    <option value="">Выберите тему</option>
+    <option>Вопрос</option>
+    <option>Заказ</option>
+</select>
+
+<label for="message">Сообщение *</label>
+<textarea id="message" name="message" rows="4" required></textarea>
+
+<div class="form-actions">
+    <button type="button" id="closeDialog">Закрыть</button>
+    <button type="submit">Отправить</button>
+</div>
+        </form>
+    </dialog>
+
+    <script src="main.js" defer></script>
  <!-- Секция 1 с якорем -->
  <section id="services">
  <h2>Наши услуги</h2>
