@@ -44,3 +44,21 @@ button {
     gap: 10px;
     margin-top: 15px;
 }
+
+/* Стили для ошибок */
+[aria-invalid="true"] {
+    border-color: #ff4d4f;
+    background-color: #fff2f0;
+}
+
+small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Для сообщений об ошибках */
+input:invalid, select:invalid, textarea:invalid {
+    border-color: #ff4d4f;
+}
