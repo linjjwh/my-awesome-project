@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
- <link rel="stylesheet" href="styles.css">
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Главная - Название вашего сайта</title>
- <link rel="icon" href="https://linjjwh.github.io/my-awesome-project/assets/favicon.ico" type="image/x-icon">
- <meta name="description" content="Узнайте больше о нашей компании и истории">
- <meta property="og:type" content="website">
-<meta property="og:title" content="О проекте - Мой Awesome Проект">
-<meta property="og:description" content="Узнайте больше о моем учебном проекте и его создателе">
-<meta property="og:image" content="https://linjjwh.github.io/my-awesome-project/assets/og-about.jpg">
-<meta property="og:url" content="https://linjjwh.github.io/my-awesome-project/about.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- <header>
- <a href="/">Логотип или название сайта</a>
- <!-- Главное меню навигации -->
- <nav>
- <ul>
- <li><a href="index.html">Главная</a></li>
- <li><a href="about.html">О нас</a></li>
- <li><a href="contacts.html">Контакты</a></li>
- </ul>
- </nav>
- </header>
- <main>
- <!-- Простые "хлебные крошки" -->
- <nav aria-label="Хлебные крошки">
- <a href="index.html">Главная</a> →
- <span>О нас</span>
- </nav>
- <h1>О нашей компании</h1>
- <section>
- <h2>Наша история</h2>
- <p>Текст о том, как все начиналось...</p>
- </section>
- <section>
- <h2>Наша команда</h2>
- <p>Текст о команде...</p>
- </section>
- </main>
- <footer>
- <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
- <p>Телефон: +7 (123) 456-78-90</p>
- </footer>
+<header class="site-header">
+  <div class="container">
+    <a class="site-header__brand" href="index.html">Мой сайт</a>
+    <nav class="site-nav">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link" href="about.html">О нас</a></li>
+        <li><a class="site-nav__link site-nav__link--current" href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <a class="breadcrumbs__link" href="index.html">Главная</a> →
+    <span class="breadcrumbs__current">Контакты</span>
+  </nav>
+  <h1>Контакты</h1>
+  <p>Телефон: +7 (123) 456-78-90</p>
+  <p>Email: info@example.com</p>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Мой сайт</p>
+  </div>
+</footer>
 </body>
 </html>
