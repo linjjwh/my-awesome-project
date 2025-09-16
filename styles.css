@@ -1,64 +1,115 @@
+/* === TOKENS === */
+:root {
+  --color-bg: #fff;
+  --color-fg: #0b0b0b;
+  --color-muted: #666;
+  --color-primary: #0a84ff;
+  --color-danger: #b00020;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.08);
+}
+
+/* === RESET === */
 * { box-sizing: border-box; }
-
+html, body { margin: 0; padding: 0; }
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* === ACCESSIBILITY === */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+:target { outline: 2px dashed var(--color-primary); outline-offset: 4px; }
+html { scroll-behavior: smooth; }
+
+/* === HEADER / NAV === */
+.site-header {
+  border-bottom: 1px solid var(--color-muted);
+  padding: var(--space-3) 0;
+}
+.site-header__brand { font-weight: bold; }
+.site-nav__list {
+  display: flex; gap: var(--space-3);
+  list-style: none; padding: 0; margin: 0;
+}
+.site-nav__link {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+}
+.site-nav__link:hover { background: rgba(0,0,0,0.05); }
+.site-nav__link--current {
+  background: var(--color-primary); color: #fff;
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Стили для модального окна */
-dialog {
-    padding: 20px;
-    border: none;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
+/* === BREADCRUMBS === */
+.breadcrumbs { margin: var(--space-3) 0; }
+.breadcrumbs__link { color: var(--color-primary); }
+.breadcrumbs__current { color: var(--color-muted); }
+
+/* === SECTIONS === */
+.section { padding-block: var(--space-5); }
+.section__title { margin: 0 0 var(--space-3); }
+
+/* === FORM & MODAL === */
+.modal {
+  padding: var(--space-4);
+  border: none;
+  border-radius: var(--radius);
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--shadow);
+}
+.modal::backdrop { background: rgba(0,0,0,0.5); }
+
+.form__group { margin-bottom: var(--space-3); }
+.form__label { display: block; margin-bottom: var(--space-1); font-weight: bold; }
+.form__input, .form__textarea, .form__select {
+  width: 100%; padding: var(--space-2);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+}
+.form__input:focus, .form__textarea:focus, .form__select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(10,132,255,0.2);
+}
+[aria-invalid="true"] { border-color: var(--color-danger); background: #fff2f0; }
+small { font-size: 12px; color: var(--color-muted); }
+
+/* === MEDIA === */
+.media {
+  aspect-ratio: 16/9;
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+.media iframe {
+  width: 100%; height: 100%;
+  border: 0; border-radius: var(--radius);
 }
 
-dialog::backdrop {
-    background: rgba(0,0,0,0.5);
+/* === UTILS === */
+.container {
+  width: min(100% - 2*var(--space-4), 1200px);
+  margin-inline: auto;
 }
-
-/* Стили для формы */
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.form-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-/* Стили для ошибок */
-[aria-invalid="true"] {
-    border-color: #ff4d4f;
-    background-color: #fff2f0;
-}
-
-small {
-    display: block;
-    margin-top: 4px;
-    font-size: 12px;
-    color: #666;
-}
-
-/* Для сообщений об ошибках */
-input:invalid, select:invalid, textarea:invalid {
-    border-color: #ff4d4f;
-}
+.responsive-image { border-radius: var(--radius); }
